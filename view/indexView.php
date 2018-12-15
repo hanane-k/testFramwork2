@@ -1,6 +1,6 @@
 <?php
 require "template/header.php";
-        session_start();
+        // session_start();
 
 ?>
 
@@ -18,6 +18,7 @@ require "template/header.php";
 
   <input type="submit" value="OK">
 </form> -->
+
 <a href="insertUser" class="btn btn-primary mt-5 mb-5 mr-5">Ajouter un bénévole</a>
 <a href="listeMsg" class="btn btn-primary m-5">Voir tout les messages</a>
 <a <?php setHref("logout");  ?> class="btn btn-danger mt-5 mb-5 ml-5">Se deconnecter</a>

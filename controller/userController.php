@@ -32,7 +32,7 @@ function loginUser() {
         }
     }
     if (isLogged()){
-        redirectTo("listeUser");
+        redirectTo("listeMsg");
     }
     require "view/loginView.php";
 }
@@ -44,7 +44,7 @@ function update() {
     }
     if(!empty($_POST)) {
         updateUser($_POST);
-        redirectTo("listeUser.php");
+        redirectTo("listeUser");
     }
     require "view/updateUserView.php";
 }

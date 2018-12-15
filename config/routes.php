@@ -15,7 +15,6 @@
 function getRoutes() {
   return [
     "" => [
-      "status" => "anonymous",
       "user",
       "loginUser"
     ],
@@ -42,20 +41,21 @@ function getRoutes() {
       ["id" => ["integer"]]
     ],
     "logout" => [
-      "status" => "anonymous",
-
       "user",
       "deconnectUser"
     ],
     "listeMsg" => [
+      // "status" => "user",
       "msg",
       "listeMsg"
     ],
     "insertMsg" => [
+      // "status" => "user",
       "msg",
       "insertMsg"
     ],
     "deleteMsg" =>[
+    // "status" => "user",
     "msg",
     "deleteMsg",
     ["id" => ["integer"]]

@@ -3,9 +3,14 @@ require "template/header.php";
 session_start();
 $userId = $_SESSION["user"]["ID"];
 $message = getMessages($userId);
-
+if ($_SESSION["user"]["status"] === "admin") {
 ?>
-<a href="listeUser" class="btn btn-primary mt-5 mb-5 mr-5">Les volontaire</a>
+<a href="listeUser" class="btn btn-primary mt-5 mb-5 ml-5 mr-5">Voir les volontaires</a>
+
+<?php
+}
+?>
+
 <a href="insertMsg" class="btn btn-primary mt-5 mb-5 ml-5 mr-5">Nouveau message</a>
 <a <?php setHref("logout");  ?> class="btn btn-danger mt-5 mb-5 ml-5">Se deconnecter</a>
 

@@ -1,7 +1,7 @@
 <?php
 
-require "view/template/header.php";
-require "view/form/formReplayMsg.php";
-require "view/template/footer.php";
+require "template/header.php";
+require "form/formReplayMsg.php";
+require "template/footer.php";
 
 ?>

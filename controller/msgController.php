@@ -19,4 +19,14 @@ function deleteMsg() {
     deleteMessage($id);
     redirectTo("listeMsg");
 }   
+
+function toReplayMsg() {
+    if (!empty($_POST)) {
+        addReplayMessage($_POST, $_SESSION["user"]["ID"]);
+        redirectTo("listeMsg");
+    }
+    require "view/msgReplayView.php";
+}
+
+
 ?>

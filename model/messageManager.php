@@ -22,11 +22,26 @@ function addMessage($message, $sender, $volonteer) {
   return $result;
 }
 
+function addReplayMessage($message, $sender) {
+  $db = getDataBase();
+  $query = $db->prepare("INSERT INTO msg(object, msg, date, recipient, sender) VALUES (:object, :msg, NOW(), :recipient, :sender)");
+  $result = $query->execute([
+    "object" => $message["object"],
+    "msg" => $message["msg"],
+    "recipient" => $message["name"],
+    "sender" => $sender
+  ]);
+  $query->closeCursor();
+  return $result;
+}
+
 function deleteMessage($id) {
   $db = getDataBase();
   $req = $db->prepare("DELETE FROM msg WHERE ID = :ID");
   $result = $req->execute(["ID" => $id]);
+  $req->closeCursor();
   return $result;
 }
+
 
  ?>

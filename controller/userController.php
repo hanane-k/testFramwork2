@@ -60,17 +60,4 @@ function deconnectUser() {
     redirectTo("");
 }
 
-function adminRights() {
-    if ($_SESSION["user"] === "admin") {
-        redirectTo("listeUser");
-    }
-    else {
-        redirectTo("");
-    }
-}
-function userRights() {
-    if ($_SESSION["user"] === "user") {
-        
-    }
-}
 ?>

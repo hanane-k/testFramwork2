@@ -41,24 +41,31 @@ function getRoutes() {
       ["id" => ["integer"]]
     ],
     "logout" => [
+      "status" => "user",      
       "user",
       "deconnectUser"
     ],
     "listeMsg" => [
-      // "status" => "user",
+      "status" => "user",
       "msg",
       "listeMsg"
     ],
     "insertMsg" => [
-      // "status" => "user",
+      "status" => "user",
       "msg",
       "insertMsg"
     ],
     "deleteMsg" =>[
-    // "status" => "user",
-    "msg",
-    "deleteMsg",
-    ["id" => ["integer"]]
+      "status" => "user",
+      "msg",
+      "deleteMsg",
+      ["id" => ["integer"]]
+    ],
+    "replayMsg" => [
+      "status" => "user",
+      "msg",
+      "toReplayMsg",
+      ["id" => ["integer"]]
     ]
   ];
 }

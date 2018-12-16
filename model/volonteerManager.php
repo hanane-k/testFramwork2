@@ -4,6 +4,7 @@
         $db = getDataBase();
         $req = $db->query("SELECT * FROM volonteer");
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
         return $result;
 
     }
@@ -13,14 +14,16 @@
         $req = $db->prepare("SELECT * FROM volonteer WHERE ID = :ID");
         $req->execute(["ID" => $id]);
         $result = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
         return $result;
     }
-
+//recupérer le volontaire par son nom
     function getVolonteerByName($name) {
         $db = getDataBase();
         $req = $db->prepare("SELECT * FROM volonteer WHERE name = ?");
         $req->execute([$name]);
         $result = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
         return $result;
     }
 // delete volonteer function
@@ -28,6 +31,7 @@
         $db = getDataBase();
         $req = $db->prepare("DELETE FROM volonteer WHERE ID = :ID");
         $result = $req->execute(["ID" => $id]);
+        $req->closeCursor();
         return $result;
     }
 // insert function
@@ -45,6 +49,7 @@
             "street" => $volonteer["street"],
             "city" => $volonteer["city"]
         ]);
+        $req->closeCursor();
         return $result;
     }
 // update function
@@ -63,6 +68,7 @@
             "city" => $form["city"],
             "ID" => $form["ID"]
         ]);
+        $req->closeCursor();
         return $result;
     }
 
@@ -79,6 +85,7 @@
         }
         $req = $db->query($sql);
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
         return $result;
     }
 ?>

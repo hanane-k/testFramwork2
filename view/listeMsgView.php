@@ -1,6 +1,6 @@
 <?php
 require "template/header.php";
-session_start();
+// session_start();
 $userId = $_SESSION["user"]["ID"];
 $message = getMessages($userId);
 if ($_SESSION["user"]["status"] === "admin") {
@@ -38,16 +38,10 @@ if ($_SESSION["user"]["status"] === "admin") {
       <td><?php echo $value["object"]; ?></td>
       <td><?php echo $value["msg"]; ?></td>
       <td><?php echo $value["date"]; ?></td>
-      <?php
-        // foreach ($volonteers as $key => $volonteer) {
-      ?>
           <td><?php echo $_SESSION["user"]["name"]; ?></td>
           <td><?php echo $value["name"]; ?></td>
-      <?php
-        // }
-      ?>
       <td>
-      <a href="?id=<?php echo $value['ID']; ?>" class="btn btn-success">Répondre</a>
+      <a href="replayMsg?id=<?php echo $value['ID']; ?>" class="btn btn-success">Répondre</a>
       <a href="deleteMsg?id=<?php echo $value['ID']; ?>" class="btn btn-danger">Supprimer</a>
       </td>
     </tr>
